@@ -4,29 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirect to Random Link</title>
+    <title>Redirecting to Random Link...</title>
 </head>
 
 <body>
-    <p>Click the button below to be redirected to a random link:</p>
-    <button onclick="redirectToRandomLink()">Redirect</button>
-
     <script>
-        function redirectToRandomLink() {
-            // Array of your four different links
-            var links = [
+        // Array of your four different links
+        var links = [
                 "https://www.youtube.com/watch?v=NwAoUccrf-o",
                 "https://www.youtube.com/watch?v=vr7mseR8YlE",
                 "https://www.youtube.com/watch?v=8WaOctN6EWE",
                 "https://www.youtube.com/watch?v=J-2hz10OnAE"
-            ];
+        ];
 
-            // Get a random index to select a link
-            var randomIndex = Math.floor(Math.random() * links.length);
+        // Get a random index to select a link
+        var randomIndex = Math.floor(Math.random() * links.length);
 
-            // Redirect to the randomly selected link
-            window.location.href = links[randomIndex];
-        }
+        // Redirect to the randomly selected link
+        window.location.href = links[randomIndex];
     </script>
 </body>
 
