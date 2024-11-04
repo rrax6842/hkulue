@@ -4,24 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting to Random Link...</title>
+    <title>Redirecting to Link</title>
 </head>
 
 <body>
     <script>
         // Array of your four different links
         var links = [
-                "https://forms.office.com/Pages/ResponsePage.aspx?id=dY4N6LlSOUijWIeruTs1Z4-ZuoPM1IpCjewWmwLMGNpUNlhXM0JYVTBLVkNKRFUxUUcwWEEyWENHWi4u",
-                "https://forms.office.com/Pages/ResponsePage.aspx?id=dY4N6LlSOUijWIeruTs1Z4-ZuoPM1IpCjewWmwLMGNpUNUkxQktOUlowT1lMNEw5SFYxOFQyT0VLSi4u",
-                "https://forms.office.com/Pages/ResponsePage.aspx?id=dY4N6LlSOUijWIeruTs1Z4-ZuoPM1IpCjewWmwLMGNpUQTdQWVc5ODRFVDBYQVc5UVpDS1dHSzE4SS4u",
-                "https://forms.office.com/Pages/ResponsePage.aspx?id=dY4N6LlSOUijWIeruTs1Z4-ZuoPM1IpCjewWmwLMGNpUMFJVTTFZSThaSzdVMjRPWjRYRkxTVUs5Ty4u"
+            "https://forms.office.com/Pages/ResponsePage.aspx?id=dY4N6LlSOUijWIeruTs1Z4-ZuoPM1IpCjewWmwLMGNpUNlhXM0JYVTBLVkNKRFUxUUcwWEEyWENHWi4u",
+            "https://forms.office.com/Pages/ResponsePage.aspx?id=dY4N6LlSOUijWIeruTs1Z4-ZuoPM1IpCjewWmwLMGNpUNUkxQktOUlowT1lMNEw5SFYxOFQyT0VLSi4u",
+            "https://forms.office.com/Pages/ResponsePage.aspx?id=dY4N6LlSOUijWIeruTs1Z4-ZuoPM1IpCjewWmwLMGNpUQTdQWVc5ODRFVDBYQVc5UVpDS1dHSzE4SS4u",
+            "https://forms.office.com/Pages/ResponsePage.aspx?id=dY4N6LlSOUijWIeruTs1Z4-ZuoPM1IpCjewWmwLMGNpUMFJVTTFZSThaSzdVMjRPWjRYRkxTVUs5Ty4u"
         ];
 
-        // Get a random index to select a link
-        var randomIndex = Math.floor(Math.random() * links.length);
+        // Get the number of clicks from localStorage or set to 0 if not present
+        var clickCount = localStorage.getItem("clickCount");
+        if (clickCount === null) {
+            clickCount = 0;
+        } else {
+            clickCount = parseInt(clickCount);
+        }
 
-        // Redirect to the randomly selected link
-        window.location.href = links[randomIndex];
+        // Calculate the index of the link based on the click count
+        var linkIndex = clickCount % links.length;
+
+        // Redirect to the corresponding link
+        window.location.href = links[linkIndex];
+
+        // Update the click count for the next visit
+        clickCount++;
+        localStorage.setItem("clickCount", clickCount);
     </script>
 </body>
 
