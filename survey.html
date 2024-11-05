@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting to Link</title>
+    <title>Redirecting to Random Link...</title>
 </head>
 
 <body>
@@ -17,23 +17,11 @@
             "https://forms.office.com/Pages/ResponsePage.aspx?id=dY4N6LlSOUijWIeruTs1Z4-ZuoPM1IpCjewWmwLMGNpUMFJVTTFZSThaSzdVMjRPWjRYRkxTVUs5Ty4u"
         ];
 
-        // Get the number of clicks from localStorage or set to 0 if not present
-        var clickCount = localStorage.getItem("clickCount");
-        if (clickCount === null) {
-            clickCount = 0;
-        } else {
-            clickCount = parseInt(clickCount);
-        }
+        // Get a random index to select a link
+        var randomIndex = Math.floor(Math.random() * links.length);
 
-        // Calculate the index of the link based on the click count
-        var linkIndex = clickCount % links.length;
-
-        // Redirect to the corresponding link
-        window.location.href = links[linkIndex];
-
-        // Update the click count for the next visit
-        clickCount++;
-        localStorage.setItem("clickCount", clickCount);
+        // Redirect to the randomly selected link
+        window.location.href = links[randomIndex];
     </script>
 </body>
 
